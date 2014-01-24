@@ -1,0 +1,1 @@
+Jars from DJNativeSwing-SWT-1-0-2, downloadable at: http://sourceforge.net/projects/djproject/files/DJ%20Native%20Swing/

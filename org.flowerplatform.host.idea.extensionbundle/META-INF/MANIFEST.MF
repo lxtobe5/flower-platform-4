@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Extensionbundle
+Bundle-SymbolicName: org.flowerplatform.host.idea.extensionbundle
+Bundle-Version: 1.0.0.qualifier
+Export-Package: org.flowerplatform.host.idea
+Fragment-Host: system.bundle; extension:=framework
+
