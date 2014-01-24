@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Idea
+Bundle-SymbolicName: org.flowerplatform.desktop.idea
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.flowerplatform.desktop.idea.IdeaPlugin
+Require-Bundle: org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy

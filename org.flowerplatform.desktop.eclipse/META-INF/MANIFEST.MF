@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse
+Bundle-SymbolicName: org.flowerplatform.desktop.eclipse;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.flowerplatform.desktop.eclipse.EclipsePlugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.jface.text,
+ org.eclipse.ui.editors,
+ org.flowerplatform.util,
+ org.eclipse.ui.ide,
+ org.eclipse.core.resources,
+ org.flowerplatform.desktop
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
