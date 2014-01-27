@@ -20,27 +20,6 @@ public class FlowerEditor extends EditorPart {
 
 	private static final Logger logger = LoggerFactory
 			.getLogger(FlowerEditor.class);
-
-//	static {
-//		Bundle bundle = Platform.getBundle("org.flowerplatform.eclipse");
-//		if (bundle != null) {
-//			URL resourceUrl = bundle
-//					.getResource("libs/mozilla/xulrunner_3_6_28_win32");
-//			if (resourceUrl != null) {
-//				try {
-//					URL fileUrl = FileLocator.toFileURL(resourceUrl);
-//					File file = new File(fileUrl.toURI());
-//					System.setProperty("org.eclipse.swt.browser.XULRunnerPath",
-//							file.getAbsolutePath());
-//				} catch (Exception e) {
-////					logger.error(
-////							"Failed to configure xulrunner path for mozilla browser!",
-////							e);
-//				}
-//			}
-//		}
-//	}
-
 	
 	private Browser browser;
 
@@ -53,7 +32,6 @@ public class FlowerEditor extends EditorPart {
 	public Browser getBrowser() {
 		return browser;
 	}
-
 
 	@Override
 	public void doSaveAs() {
@@ -104,12 +82,10 @@ public class FlowerEditor extends EditorPart {
 
 	@SuppressWarnings("restriction")
 	public void createPartControl(Composite parent) {
-//		if (getEditorInput() instanceof StringInput) {
-			browser = new Browser(parent, SWT.NONE);
-			browser.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-			browser.setUrl("https://www.google.ro/");
-			return;
-//		}
+		browser = new Browser(parent, SWT.NONE);
+		browser.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+		browser.setUrl("https://www.google.ro/");
+		return;
 	}
 
 	@Override

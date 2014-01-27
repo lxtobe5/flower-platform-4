@@ -34,5 +34,20 @@
             name="New Command">
       </command>
    </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="org.flowerplatform.desktop.eclipse.FlowerPreferencePage"
+            id="org.flowerplatform.desktop.eclipse.page1"
+            name="Flower Platform">
+      </page>
+   </extension>
+   <extension
+         id="org.flowerplatform.desktop.eclipse.page1"
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="org.flowerplatform.desktop.eclipse.FlowerPreferencesInitializer">
+      </initializer>
+   </extension>
 
 </plugin>

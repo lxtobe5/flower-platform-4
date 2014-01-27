@@ -7,14 +7,13 @@ import org.flowerplatform.desktop.XulrunnerConfig;
 import org.osgi.framework.BundleContext;
 
 /**
- * The activator class controls the plug-in life cycle
+ * @author Sebastian Solomon
  */
 public class EclipsePlugin extends AbstractUIPlugin {
 
 	// The plug-in ID
 	public static final String PLUGIN_ID = "org.flowerplatform.desktop.eclipse"; //$NON-NLS-1$
 
-	// The shared instance
 	private static EclipsePlugin plugin;
 	
 	private FlowerJettyServer server;
@@ -23,6 +22,13 @@ public class EclipsePlugin extends AbstractUIPlugin {
 	 * The constructor
 	 */
 	public EclipsePlugin() {
+	}
+	
+	public static EclipsePlugin getInstance() {
+		if (plugin == null) {
+			return new EclipsePlugin();
+		} 
+		return plugin;
 	}
 
 	/*
@@ -49,14 +55,6 @@ public class EclipsePlugin extends AbstractUIPlugin {
 		super.stop(context);
 	}
 
-	/**
-	 * Returns the shared instance
-	 *
-	 * @return the shared instance
-	 */
-	public static EclipsePlugin getDefault() {
-		return plugin;
-	}
 
 	/**
 	 * Returns an image descriptor for the image file at the given
