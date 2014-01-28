@@ -20,6 +20,7 @@
             locationURI="menu:org.eclipse.ui.main.menu?after=help">
          <command
                commandId="NewCommand"
+               icon="icons/FlowerDiagramEditor.gif"
                id="NewCommand"
                label="New Command!!!"
                style="push">
@@ -48,6 +49,16 @@
       <initializer
             class="org.flowerplatform.desktop.eclipse.FlowerPreferencesInitializer">
       </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="org.flowerplatform.desktop.eclipse.parts.PropertiesView"
+            icon="icons/FlowerDiagramEditor.gif"
+            id="org.flowerplatform.desktop.eclipse.Propertiesview"
+            name="Flower Properties"
+            restorable="true">
+      </view>
    </extension>
 
 </plugin>
