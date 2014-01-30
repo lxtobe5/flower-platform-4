@@ -44,14 +44,13 @@ public class FlowerDiagramFileType extends LanguageFileType {
     @NotNull
     @Override
     public String getDescription() {
-        return "Flower Diagram Editor";
+        return I18nSupport.message("flower.diagram.editor");
     }
 
     @NotNull
     @Override
     public String getDefaultExtension() {
-        // TODO
-        return "flower-diagram";
+        return I18nSupport.message("flower.diagram.extension");
     }
 
     @Nullable

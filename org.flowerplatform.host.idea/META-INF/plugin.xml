@@ -2,7 +2,7 @@
   <id>com.flowerplatform.FlowerPlugin</id>
   <name>Flower Platform Plugin</name>
   <version>1.0</version>
-  <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+  <vendor email="support@yourcompany.com" url="http://flower-platform.org/">YourCompany</vendor>
 
   <description><![CDATA[
       Enter short description for your plugin here.<br>
@@ -45,5 +45,6 @@
   <extensions defaultExtensionNs="com.intellij">
       <fileTypeFactory implementation="org.flowerplatform.host.idea.FlowerDiagramTypeFactory"/>
       <fileEditorProvider id="My Editor" implementation="org.flowerplatform.host.idea.FlowerDiagramEditorProvider"/>
+      <projectConfigurable  implementation="org.flowerplatform.host.idea.settings.Configuration"> </projectConfigurable >
   </extensions>
 </idea-plugin>

@@ -28,7 +28,7 @@ import org.jetbrains.annotations.NotNull;
 public class FlowerDiagramTypeFactory extends FileTypeFactory {
     @Override
     public void createFileTypes(@NotNull FileTypeConsumer fileTypeConsumer) {
-        //TODO remove hard code, and add other extensions
-        fileTypeConsumer.consume(FlowerDiagramFileType.INSTANCE, "flower-diagram");
+        //todo add other extensions
+        fileTypeConsumer.consume(FlowerDiagramFileType.INSTANCE, I18nSupport.message("flower.diagram.extension"));
     }
 }

@@ -19,25 +19,26 @@
 
 package org.flowerplatform.host.idea;
 
+import org.jetbrains.annotations.NonNls;
+import org.jetbrains.annotations.PropertyKey;
+
+import java.text.MessageFormat;
+import java.util.ResourceBundle;
+
 /**
  * @author Sebastian Solomon
  */
-public class EclipseStarter {
+public class I18nSupport {
+    @NonNls
+    public static final ResourceBundle flowerPluginBundle =
+            ResourceBundle.getBundle("org.flowerplatform.host.idea.flowerPlugin");
 
-    private static boolean isStarted = false;
-
-    public static void start() {
-        if (!isStarted) {
-//            FlowerFrameworkLauncher framework = new FlowerFrameworkLauncher();
-//            framework.init();
-//            framework.deploy();
-//            framework.start();
-            isStarted = true;
+    public static String message(@PropertyKey(resourceBundle = "org.flowerplatform.host.idea.flowerPlugin") String key, Object... params){
+        String value = flowerPluginBundle.getString(key);
+        if (params.length > 0) {
+            return MessageFormat.format(value, params);
         }
-    }
-
-    public static void configXulrunner(){
-        //TODO
+        return value;
     }
 
 }

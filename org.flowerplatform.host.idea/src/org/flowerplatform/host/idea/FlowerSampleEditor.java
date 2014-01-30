@@ -23,8 +23,6 @@ import chrriis.common.UIUtils;
 import chrriis.dj.nativeswing.swtimpl.NativeInterface;
 import chrriis.dj.nativeswing.swtimpl.components.JWebBrowser;
 import com.intellij.codeHighlighting.BackgroundEditorHighlighter;
-import com.intellij.ide.plugins.IdeaPluginDescriptor;
-import com.intellij.ide.plugins.PluginManager;
 import com.intellij.ide.structureView.StructureViewBuilder;
 import com.intellij.openapi.fileEditor.FileEditor;
 import com.intellij.openapi.fileEditor.FileEditorLocation;
@@ -39,8 +37,6 @@ import org.jetbrains.annotations.Nullable;
 import javax.swing.*;
 import java.awt.*;
 import java.beans.PropertyChangeListener;
-import java.io.File;
-import java.net.URL;
 
 /**
  * @author Sebastian Solomon
@@ -56,8 +52,7 @@ public class FlowerSampleEditor implements FileEditor/*, FileEditorManagerListen
     Project project;
 
     static {
-        EclipseStarter.start();
-        EclipseStarter.configXulrunner();
+        FlowerPluginInit.start();
     }
 
 

@@ -45,8 +45,7 @@ public class FlowerDiagramEditorProvider implements ApplicationComponent, FileEd
     //whether the provider can create valid editor for the specified file or not
     @Override
     public boolean accept(@NotNull Project project, @NotNull VirtualFile virtualFile) {
-        //TODO hard code remove
-        return virtualFile.getName().endsWith(".flower-diagram");
+        return virtualFile.getName().endsWith("." + I18nSupport.message("flower.diagram.extension"));
     }
 
     @NotNull
