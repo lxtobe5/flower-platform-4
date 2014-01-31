@@ -63,7 +63,6 @@ public class FlowerSampleEditor implements FileEditor/*, FileEditorManagerListen
         browserPanel = new JPanel(new BorderLayout());
         NativeInterface.open();
         UIUtils.setPreferredLookAndFeel();
-        browserPanel = new JPanel(new BorderLayout());
         webBrowser.setBarsVisible(false);
         webBrowser.navigate("www.google.ro");
 //        System.out.println(BridgeUtilIdeaToEclipse.iIdeaToEclipseBridge.getUrl());

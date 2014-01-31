@@ -2,7 +2,7 @@
   <id>com.flowerplatform.FlowerPlugin</id>
   <name>Flower Platform Plugin</name>
   <version>1.0</version>
-  <vendor email="support@yourcompany.com" url="http://flower-platform.org/">YourCompany</vendor>
+  <vendor email="support@yourcompany.com" url="http://flower-platform.org/">Flower Platform</vendor>
 
   <description><![CDATA[
       Enter short description for your plugin here.<br>
@@ -34,10 +34,13 @@
   </project-components>
 
   <actions>
-      <group id="FlowerPlugin.NewMenu" text="_NewMenu!!!" description="New Menu">
-          <add-to-group group-id="MainMenu" anchor="last"  />
+      <group id="FlowerPlugin.NewMenu" text="_FlowerPlatform" description="New Menu" >
+          <add-to-group group-id="MainMenu" anchor="before" relative-to-action="HelpMenu"  />
           <action id="Flowerplugin.firstAction" class="org.flowerplatform.host.idea.FirstAction"
                   text="Action" description="First Action"  icon="/images/FlowerDiagramEditor.gif"/>
+          <separator/>
+          <action id="Flowerplugin.ShowHidePropertiesTool" class="org.flowerplatform.host.idea.toolWindow.ToolWindowShowAction"
+                  text="Properties Tool" description="Show/Hide Properties Tool"  />
           <!--<action id="Myplugin.Dialogs" class="Mypackage.MyShowDialog" text="Show _Dialog" description="A test menu item" />-->
       </group>
   </actions>
@@ -46,5 +49,7 @@
       <fileTypeFactory implementation="org.flowerplatform.host.idea.FlowerDiagramTypeFactory"/>
       <fileEditorProvider id="My Editor" implementation="org.flowerplatform.host.idea.FlowerDiagramEditorProvider"/>
       <projectConfigurable  implementation="org.flowerplatform.host.idea.settings.Configuration"> </projectConfigurable >
+      <!--todo ToolWindow icons should be 13x13-->
+      <toolWindow id="Properties"   secondary="true" icon="/images/FlowerDiagramEditor.gif" anchor="bottom" factoryClass="org.flowerplatform.host.idea.toolWindow.ToolWindowFactory"/>
   </extensions>
 </idea-plugin>

@@ -32,8 +32,8 @@ public class FlowerPreferencesInitializer extends AbstractPreferenceInitializer 
 	@Override
 	public void initializeDefaultPreferences() {
 		IPreferenceStore store = EclipsePlugin.getInstance().getPreferenceStore();
-		EclipsePlugin.getInstance().getPreferenceStore().getInt("MAX_EDITORS_NUMBER_NAME");
 	    store.setDefault(FlowerPreferencePage.MAX_EDITORS_NUMBER_NAME, 5);
+	    store.setDefault(FlowerPreferencePage.OPEN_EDITOR_BEHAVIOR_NAME, FlowerPreferencePage.REUSE_EXISTING_EDITOR_VALUE);
 	}
 
 }
