@@ -18,8 +18,13 @@
  */
 package org.flowerplatform.codesync.code;
 
+import static org.flowerplatform.core.CoreConstants.CHILDREN_PROVIDER;
+import static org.flowerplatform.core.CoreConstants.REPOSITORY_TYPE;
+
 import java.io.File;
 
+import org.flowerplatform.core.CoreConstants;
+import org.flowerplatform.core.CorePlugin;
 import org.flowerplatform.util.plugin.AbstractFlowerJavaPlugin;
 import org.osgi.framework.BundleContext;
 import org.slf4j.Logger;
@@ -42,6 +47,9 @@ public class CodeSyncCodePlugin extends AbstractFlowerJavaPlugin {
 	public void start(BundleContext bundleContext) throws Exception {
 		super.start(bundleContext);
 		INSTANCE = this;
+		
+		CorePlugin.getInstance().getNodeTypeDescriptorRegistry().getOrCreateTypeDescriptor(REPOSITORY_TYPE)
+			.addAdditiveController(CHILDREN_PROVIDER, new CodeRepositoryChildrenProvider());
 	}
 	
 	public void stop(BundleContext bundleContext) throws Exception {
