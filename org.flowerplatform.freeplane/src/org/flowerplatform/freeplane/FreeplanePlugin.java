@@ -109,7 +109,12 @@ public class FreeplanePlugin extends AbstractFlowerJavaPlugin {
 		.addAdditiveController(RESOURCE_ACCESS_CONTROLLER, new FreeplaneResourceAccessController(FREEPLANE_PERSISTENCE_CATEGORY))
 		.addAdditiveController(CHILDREN_PROVIDER, new FreeplaneResourceChildrenProvider())
 		.addSingleController(RAW_NODE_DATA_PROVIDER, new FreeplaneResourceRawNodeDataProvider());		
-		
+
+		CorePlugin.getInstance().getNodeTypeDescriptorRegistry().getOrCreateTypeDescriptor(CoreConstants.MDA_TYPE)
+		.addAdditiveController(RESOURCE_ACCESS_CONTROLLER, new FreeplaneResourceAccessController(FREEPLANE_PERSISTENCE_CATEGORY))
+		.addAdditiveController(CHILDREN_PROVIDER, new FreeplaneResourceChildrenProvider())
+		.addSingleController(RAW_NODE_DATA_PROVIDER, new FreeplaneResourceRawNodeDataProvider());		
+
 		CorePlugin.getInstance().getServiceRegistry().registerService("mindmapService", new MindMapServiceRemote());
 	}
 

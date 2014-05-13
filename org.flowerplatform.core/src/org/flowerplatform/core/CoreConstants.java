@@ -18,6 +18,8 @@ public class CoreConstants {
 	public static final String ROOT_TYPE = "root";
 	public static final String REPOSITORY_TYPE = "repository";
 	public static final String CODE_TYPE = "code";
+	public static final String MDA_TYPE = "mda";
+	public static final String MDA_PACKAGE_TYPE = "mdaPackage";
 	
 	public final static String DEBUG = "_debug";
 	

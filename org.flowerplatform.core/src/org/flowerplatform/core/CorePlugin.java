@@ -18,7 +18,10 @@
  */
 package org.flowerplatform.core;
 
+import static org.flowerplatform.core.CoreConstants.ADD_CHILD_DESCRIPTOR;
+import static org.flowerplatform.core.CoreConstants.CHILDREN_PROVIDER;
 import static org.flowerplatform.core.CoreConstants.DEFAULT_PROPERTY_PROVIDER;
+import static org.flowerplatform.core.CoreConstants.REPOSITORY_TYPE;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -29,11 +32,13 @@ import org.flowerplatform.core.file.IFileAccessController;
 import org.flowerplatform.core.file.PlainFileAccessController;
 import org.flowerplatform.core.file.download.remote.DownloadService;
 import org.flowerplatform.core.file.upload.remote.UploadService;
+import org.flowerplatform.core.mda.MdaRepositoryChildrenProvider;
 import org.flowerplatform.core.node.NodeService;
 import org.flowerplatform.core.node.controller.ConstantValuePropertyProvider;
 import org.flowerplatform.core.node.controller.PropertyDescriptorDefaultPropertyValueProvider;
 import org.flowerplatform.core.node.controller.ResourceTypeDynamicCategoryProvider;
 import org.flowerplatform.core.node.controller.TypeDescriptorRegistryDebugControllers;
+import org.flowerplatform.core.node.remote.AddChildDescriptor;
 import org.flowerplatform.core.node.remote.GenericValueDescriptor;
 import org.flowerplatform.core.node.remote.NodeServiceRemote;
 import org.flowerplatform.core.node.remote.ResourceServiceRemote;
@@ -213,7 +218,23 @@ public class CorePlugin extends AbstractFlowerJavaPlugin {
 		getNodeTypeDescriptorRegistry().getOrCreateTypeDescriptor(CoreConstants.CODE_TYPE)
 		.addAdditiveController(CoreConstants.PROPERTIES_PROVIDER, new ConstantValuePropertyProvider(CoreConstants.NAME, CoreConstants.CODE_TYPE))
 		.addAdditiveController(CoreConstants.PROPERTIES_PROVIDER, new ConstantValuePropertyProvider(CoreConstants.IS_SUBSCRIBABLE, true));
-		
+
+		{
+			// MDA
+			getNodeTypeDescriptorRegistry().getOrCreateTypeDescriptor(CoreConstants.MDA_TYPE)
+					.addAdditiveController(CoreConstants.PROPERTIES_PROVIDER, new ConstantValuePropertyProvider(CoreConstants.NAME, CoreConstants.MDA_TYPE))
+					.addAdditiveController(CoreConstants.PROPERTIES_PROVIDER, new ConstantValuePropertyProvider(CoreConstants.IS_SUBSCRIBABLE, true))
+					.addAdditiveController(ADD_CHILD_DESCRIPTOR, new AddChildDescriptor().setChildTypeAs(CoreConstants.MDA_PACKAGE_TYPE).setLabelAs("MDA package"));
+			
+			CorePlugin.getInstance().getNodeTypeDescriptorRegistry().getOrCreateTypeDescriptor(REPOSITORY_TYPE)
+					.addAdditiveController(CHILDREN_PROVIDER, new MdaRepositoryChildrenProvider());
+
+			getNodeTypeDescriptorRegistry().getOrCreateTypeDescriptor(CoreConstants.MDA_PACKAGE_TYPE)
+					.addAdditiveController(ADD_CHILD_DESCRIPTOR, new AddChildDescriptor().setChildTypeAs("mdaEntity").setLabelAs("Entity"));
+//					.setIconAs(getImagePathFromPublicResources(IMG_WIZ_PACKAGE)).setOrderIndexAs(10))
+
+		}
+
 		getNodeTypeDescriptorRegistry().addDynamicCategoryProvider(new ResourceTypeDynamicCategoryProvider());
 				
 		getNodeTypeDescriptorRegistry().getOrCreateCategoryTypeDescriptor(UtilConstants.CATEGORY_ALL)

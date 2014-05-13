@@ -1,4 +1,4 @@
-package org.flowerplatform.codesync.code;
+package org.flowerplatform.core.mda;
 
 import java.util.Collections;
 import java.util.List;
@@ -12,18 +12,17 @@ import org.flowerplatform.core.node.remote.ServiceContext;
 /**
  * @author Cristian Spiescu
  */
-public class CodeRepositoryChildrenProvider extends ChildrenProvider {
+public class MdaRepositoryChildrenProvider extends ChildrenProvider {
 
-	public CodeRepositoryChildrenProvider() {
+	public MdaRepositoryChildrenProvider() {
 		super();
-		setOrderIndex(-10000);
+		setOrderIndex(-20000);
 	}
 
 	@Override
 	public List<Node> getChildren(Node node, ServiceContext<NodeService> context) {
 		return Collections.singletonList(
-				new Node(CoreConstants.CODE_TYPE, CoreConstants.SELF_RESOURCE, "codesync.mm", null));
-	}
+				new Node(CoreConstants.MDA_TYPE, CoreConstants.SELF_RESOURCE, "mda.mm", null));	}
 
 	@Override
 	public boolean hasChildren(Node node, ServiceContext<NodeService> context) {
